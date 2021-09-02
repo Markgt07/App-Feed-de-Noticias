@@ -1,13 +1,9 @@
-import React,{useEffect,useState} from 'react';
-import {View,Text,Button, ScrollView,ImageBackground,StyleSheet, TouchableOpacity,Image} from 'react-native';
+import React,{} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import * as firebase from 'firebase';
-import {db} from './firebase.js';
-import styles from './styles.js';
-import  NoticiaScreen  from './componentes/NoticiaScreen.js';
-import HomeScreen from  './componentes/Home';
+import  {NoticiaScreen}  from './componentes/NoticiaScreen.js';
+import {HomeScreen} from  './componentes/Home';
 
   const Stack = createNativeStackNavigator();
 
@@ -24,9 +20,6 @@ import HomeScreen from  './componentes/Home';
         </Stack.Navigator>
       </NavigationContainer>
     );
-  }
-
-
-  ;
+  };
 
   export default App;

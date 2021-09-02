@@ -2,7 +2,6 @@ import React,{useEffect,useState} from 'react';
 import {View,Text,ScrollView,ImageBackground,TouchableOpacity,Image} from 'react-native';
 import {db} from '../firebase.js';
 import styles from '../styles.js';
-import { NoticiaScreenExterno } from './NoticiaScreen.js';
 
 
     export function HomeScreen ({navigation}) {

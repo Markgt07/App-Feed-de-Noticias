@@ -1,11 +1,9 @@
 import React from 'react';
 import {View,Text,ScrollView,ImageBackground} from 'react-native';
 import styles from '../styles.js';
-import App from '../App.js';
-import { HomeScreen } from './Home.js';
 
 
-    <HomeScreen/>
+    
     export function NoticiaScreen ({route,navigation}) {
         return(
         <View style={{flex:1}}>
@@ -17,7 +15,7 @@ import { HomeScreen } from './Home.js';
             </ImageBackground>
             <View style={{flex:1}}>  
                 <Text style={styles.Conteudo}>{route.params.conteudo}</Text>
-                <NoticiaScreenExterno/>
+                
             </View>
             </ScrollView>
         </View>
