@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import {View,Text,Button, ScrollView,ImageBackground,StyleSheet, TouchableOpacity,Image} from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as firebase from 'firebase';
@@ -67,15 +68,17 @@ import {db} from './firebase.js';
               noticias.map((val,index)=>{
                 if(index >= 2){
                   return(
-                    <View style={{flexDirection:'row',marginBottom:10}}>
-              <TouchableOpacity style={{flexDirection:'row'}} onPress={()=> navigation.navigate('Noticia',{
+                    <View style={{flexDirection:'row',marginBottom:10,borderWidth:3,borderColor:'rgba(174, 183, 194,0.2)',borderRadius:8}}>
+              <TouchableOpacity style={{flexDirection:'row'}} activeOpacity={0.3} onPress={()=> navigation.navigate('Noticia',{
                   titulo: val.info.titulo,
                   conteudo: val.info.conteudo,
                   imagem: val.info.imagem
                 })}>
                 <Image source={{uri:val.info.imagem}} style={{width:100,height:100}} />
-                <Text>{val.info.titulo}</Text>
+                <Text style={{padding:10,color:'rgba(66, 141, 227,1)'}}>{val.info.titulo}</Text>
+                <Text style={{alignContent:'flex-start'}}>teste</Text>
               </TouchableOpacity>
+              
             </View>
                   )}
           })
@@ -104,11 +107,14 @@ import {db} from './firebase.js';
           </ImageBackground>
           <View style={{flex:1}}>  
             <Text style={{
-              fontSize:12,
-              padding:20,
+              fontSize:14,
+              padding:22,
             }}>{route.params.conteudo}</Text>
           </View>
         </ScrollView>
+        <View style={{marginTop:10,backgroundColor:'red'}}>
+          <Text>footer</Text>
+        </View>
       </View>
     );
   }
@@ -118,13 +124,17 @@ import {db} from './firebase.js';
 function App() {
   return (
     <NavigationContainer>
+      <StatusBar hidden/>
       <Stack.Navigator>
-        <Stack.Screen name="Portal" component={HomeScreen} />
+        <Stack.Screen name="Portal" component={HomeScreen} options={{ headerStyle: {backgroundColor: '#34c9eb',},headerTintColor:'#fff',headerTitleStyle: {
+            fontWeight: 'bold',
+          }}}/>
         <Stack.Screen name="Noticia" component={NoticiaScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
 
 const styles = StyleSheet.create({
   image: {
