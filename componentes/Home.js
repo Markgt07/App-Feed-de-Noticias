@@ -17,7 +17,9 @@ import styles from '../styles.js';
         }));
       })
     },[])
-
+    //Expressão para
+    //horizontal contentContainerStyle usado para a rolagem de noticias na horizontal
+    //foi feita uma expressão para que quando for adicionadas noticias novas elas apareçam em destaque
     return(
       <View style= {{flex:1}}>
         <View style= {{flex:0.3}}>
